@@ -34,4 +34,4 @@ const TokenService = {
 
 }
 
-export { TokenService }
+export default TokenService

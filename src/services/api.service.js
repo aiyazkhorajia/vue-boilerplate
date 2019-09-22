@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { TokenService } from '../services/storage.service'
+import TokenService from '../services/storage.service'
 
 const ApiService = {
 
@@ -8,7 +8,7 @@ const ApiService = {
     },
 
     setHeader() {
-        axios.defaults.headers.common["Authorization"] = TokenService.getToken()
+        axios.defaults.headers.common["Authorization"] = `Bearer ${TokenService.getToken()}`
         axios.defaults.headers.common["Content-Type"] = 'application/json'
     },
 

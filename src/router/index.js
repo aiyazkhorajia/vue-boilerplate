@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import {TokenService} from '../services/storage.service'
+import TokenService from '../services/storage.service'
 
 import Home from './../views/Home.vue'
 import Login from './../views/Login.vue'
-import NotFound from './../views/NotFound.vue'
-
-
+import MyProfile from './../views/MyProfile.vue'
+import PageNotFound from './../views/PageNotFound.vue'
 
 Vue.use(Router)
 
@@ -15,22 +14,35 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
-      component: Login,
-      meta: {
-        public: true,  // Allow access to even if not logged in
-        onlyWhenLoggedOut: true
-      }
-    }, {
-      path: '/home',
       name: 'Home',
       component: Home,
       meta: {
-        public: false,  // Allow access only if loggedin
+        public: true,
       }
-    }, {
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      meta: {
+        public: true,  // Allow access to guest user.
+        onlyWhenLoggedOut: true
+      }
+    }, 
+    {
+      path: '/my-profile',
+      name: 'my-profile',
+      component: MyProfile,
+      meta: {
+        public: false,  // Allow access to only loggedin user.
+      }
+    },
+    {
       path: '*',
-      component: NotFound,
+      component: PageNotFound,
+      meta: {
+        public: true,
+      }
     }
   ]
 })

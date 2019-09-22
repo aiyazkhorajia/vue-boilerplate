@@ -1,5 +1,5 @@
 import ApiService from './api.service'
-import { TokenService } from './storage.service'
+import TokenService from './storage.service'
 
 
 class AuthenticationError extends Error {

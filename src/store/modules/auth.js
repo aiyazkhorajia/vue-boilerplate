@@ -1,5 +1,5 @@
 import { UserService, AuthenticationError } from '../../services/user.service'
-import { TokenService } from '../../services/storage.service'
+import TokenService from '../../services/storage.service'
 import router from '../../router'
 
 
@@ -41,8 +41,7 @@ const actions = {
             commit('loginSuccess', token)
 
             // Redirect the user to the page he first tried to visit or to the home view
-            //console.log('before redirect');
-            router.push(router.history.current.query.redirect || '/');
+            router.push(router.history.current.query.redirect || '/my-profile');
             return true
         } catch (e) {
             if (e instanceof AuthenticationError) {

@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <b-card class="mt-3" header="My Profile">
-    <pre>loggedIn: {{ loggedIn }}</pre>
+      <h3>Welcome to your profile page</h3>
+      <pre>loggedIn: {{ loggedIn }}</pre>
     </b-card>
   </div>
 </template>
@@ -12,11 +13,11 @@ import { mapGetters } from "vuex";
 export default {
     name: "myprofile",
     data() {
-      return {
+      return {        
       }
     },
     computed: {
-        ...mapGetters('auth', ['loggedIn'])
+      ...mapGetters('auth', ['loggedIn'])
     }
 }
 </script>
